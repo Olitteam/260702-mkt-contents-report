@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마케팅 1팀 · 5–6월 콘텐츠 현황 보고서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* base */
+    --ink:#1a2230;
+    --ink-soft:#5a6675;
+    --paper:#f5f7fa;
+    --paper-2:#eef2f7;
+    --card:#ffffff;
+    --line:#e2e8f0;
+    /* main accent */
+    --accent0:#3a6ea5;     /* 메인 파랑 */
+    --accent0-soft:#eaf1f9;
+    /* section colors */
+    --sec01:#d64545;       /* 빨강 */
+    --sec02:#3a6ea5;       /* 파랑 */
+    --sec03:#7c5cbf;       /* 보라 */
+    --sec04:#6aa84f;       /* 연두 */
+    --sec05:#1aa3a3;       /* 민트 */
+    --sec06:#d68a1e;       /* 추가(앰버) */
+    --sec07:#c0468a;       /* 추가(자홍) */
+    /* roas */
+    --roas-high:#1f9d57;
+    --roas-high-bg:#e6f6ed;
+    --roas-mid:#b07d12;
+    --roas-mid-bg:#fbf2dc;
+    --roas-low:#d64545;
+    --roas-low-bg:#fbe9e9;
+    --shadow:0 1px 2px rgba(26,34,48,.04), 0 12px 32px -20px rgba(26,34,48,.35);
+    --font:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+    --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:-.01em;
+  }
+  .grain{display:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px 100px;position:relative;z-index:2}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+  /* ---------- Masthead ---------- */
+  header.mast{padding:56px 0 34px;position:relative}
+  .kicker{font-weight:700;font-size:.74rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent0);margin-bottom:16px}
+  .mast h1{font-weight:800;font-size:clamp(2.1rem,5.2vw,3.4rem);
+    line-height:1.12;letter-spacing:-.035em;color:var(--ink)}
+  .mast h1 .yr{font-weight:700;color:var(--accent0)}
+  .mast .sub{margin-top:18px;font-size:1.01rem;color:var(--ink-soft);max-width:64ch;text-wrap:pretty}
+  /* KPI banner */
+  .kpi-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:30px;
+    background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .kpi-banner .cell{background:var(--card);padding:20px 22px}
+  .kpi-banner .lbl{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px}
+  .kpi-banner .v{font-family:var(--mono);font-weight:500;font-size:1.6rem;line-height:1;letter-spacing:-.04em;color:var(--ink)}
+  @media(max-width:680px){.kpi-banner{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- Section ---------- */
+  section{margin-top:58px;scroll-margin-top:20px}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .sec-num{font-family:var(--mono);font-weight:500;color:#fff;
+    border-radius:10px;width:40px;height:40px;flex:none;
+    display:grid;place-items:center;font-size:1rem}
+  .sec-head h2{font-weight:800;font-size:clamp(1.4rem,3.2vw,1.9rem);letter-spacing:-.035em}
+  .sec-desc{color:var(--ink-soft);font-size:.95rem;margin:6px 0 24px;padding-left:54px;max-width:74ch;text-wrap:balance}
+  .sec-desc::before{content:"▪️ ";font-style:normal}
+  .s1 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec01);margin-right:7px;vertical-align:baseline}
+  .s2 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec02);margin-right:7px}
+  .s3 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec03);margin-right:7px}
+  .s4 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec04);margin-right:7px}
+  .s5 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec05);margin-right:7px}
+  .s6 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec06);margin-right:7px}
+  .s7 .sec-desc::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:2px;background:var(--sec07);margin-right:7px}
+  .s2 .sec-desc.red-mark::before{background:var(--sec01)}
+  /* per-section accent */
+  .s1 .sec-num{background:var(--sec01)} .s1 h3{color:var(--sec01)!important} .s1 .sec-num{box-shadow:0 4px 12px -4px var(--sec01)}
+  .s2 .sec-num{background:var(--sec02)} .s2 h3{color:var(--sec02)!important}
+  .s3 .sec-num{background:var(--sec03)} .s3 h3{color:var(--sec03)!important}
+  .s4 .sec-num{background:var(--sec04)} .s4 h3{color:var(--sec04)!important}
+  .s5 .sec-num{background:var(--sec05)} .s5 h3{color:var(--sec05)!important}
+  .s6 .sec-num{background:var(--sec06)} .s6 h3{color:var(--sec06)!important}
+  .s7 .sec-num{background:var(--sec07)}
+
+  /* ---------- KPI cards ---------- */
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent0)}
+  .kpi.green::before{background:var(--roas-high)}
+  .kpi.red::before{background:var(--roas-low)}
+  .kpi .lbl{font-size:.71rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px;font-weight:600}
+  .kpi .val{font-family:var(--mono);font-weight:500;font-size:1.9rem;line-height:1;letter-spacing:-.05em}
+  .kpi .val small{font-size:.9rem;color:var(--ink-soft);font-weight:500;letter-spacing:0;font-family:var(--font)}
+  .kpi .delta{margin-top:8px;font-size:.79rem;font-weight:600}
+  .up{color:var(--roas-high)} .down{color:var(--roas-low)}
+
+  /* ---------- Tables (card) ---------- */
+  .tbl-wrap{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  caption{caption-side:top;text-align:left;font-weight:700;
+    font-size:1rem;padding:16px 20px 4px;color:var(--ink);letter-spacing:-.02em}
+  thead th{background:var(--paper-2);font-weight:700;font-size:.72rem;letter-spacing:.03em;
+    text-transform:uppercase;color:var(--ink-soft);text-align:right;padding:11px 16px;border-bottom:1px solid var(--line)}
+  thead th:first-child{text-align:left}
+  tbody td{padding:11px 16px;text-align:right;border-bottom:1px solid var(--paper-2)}
+  tbody td:not(:first-child){font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  tbody td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--accent0-soft)}
+  tr.total td{background:var(--paper-2);font-weight:700;border-top:1px solid var(--line)}
+  .name-sm{font-size:.8rem;color:var(--ink-soft);font-weight:400;font-family:var(--font)}
+  .roas{font-family:var(--mono);font-weight:500;letter-spacing:-.02em}
+  .roas-high{color:var(--roas-high);font-weight:500}
+  .roas-low{color:var(--roas-low);font-weight:500}
+  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.74rem;font-weight:700;font-family:var(--font)}
+  .pill.good{background:var(--roas-high-bg);color:var(--roas-high)}
+  .pill.mid{background:var(--roas-mid-bg);color:var(--roas-mid)}
+  .pill.warn{background:var(--roas-low-bg);color:var(--roas-low)}
+  .fire{color:var(--sec01);font-weight:500}
+
+  /* ---------- Callout ---------- */
+  .note{margin-top:20px;padding:17px 20px;border-left:4px solid var(--accent0);
+    background:var(--accent0-soft);border-radius:0 10px 10px 0;font-size:.92rem}
+  .note.warn{border-left-color:var(--roas-low);background:var(--roas-low-bg)}
+  .note.good{border-left-color:var(--roas-high);background:var(--roas-high-bg)}
+  .note b{color:var(--ink)}
+  .note .tag{font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent0);display:block;margin-bottom:6px}
+  .note.warn .tag{color:var(--roas-low)} .note.good .tag{color:var(--roas-high)}
+  details.note{padding:0}
+  details.note>summary{list-style:none;cursor:pointer;padding:14px 20px;display:flex;align-items:center;gap:8px;
+    font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent0);user-select:none}
+  details.note>summary::-webkit-details-marker{display:none}
+  details.note>summary::after{content:"▸";margin-left:auto;font-size:.85rem;transition:transform .18s ease;color:var(--ink-soft)}
+  details.note[open]>summary::after{transform:rotate(90deg)}
+  details.note.good>summary{color:var(--roas-high)}
+  details.note .tg-body{padding:0 20px 16px;font-size:.92rem}
+  details.note .tg-body p:first-child{margin-top:0}
+  /* structured meeting summary */
+  .mtg{margin-top:18px;display:grid;gap:14px}
+  .mtg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:680px){.mtg-grid{grid-template-columns:1fr}}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px}
+  .mcard.accent{border-left:4px solid var(--accent0);background:var(--accent0-soft)}
+  .mcard.good{border-left:4px solid var(--roas-high);background:var(--roas-high-bg)}
+  .mcard.span2{grid-column:1 / -1}
+  .mcard h4{margin:0 0 10px;font-size:.9rem;letter-spacing:-.01em;display:flex;align-items:center;gap:7px}
+  .mcard h4 .ic{font-size:1rem}
+  .mcard .row{font-size:.87rem;line-height:1.5;margin:0 0 8px;padding-left:13px;position:relative;text-wrap:pretty}
+  .mcard .row:last-child{margin-bottom:0}
+  .mcard .row::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--accent0);opacity:.55}
+  .mcard.good .row::before{background:var(--roas-high)}
+  .mcard .row b{color:var(--ink)}
+  .mcard .lbl{display:inline-block;min-width:fit-content;font-weight:700;color:var(--accent0);font-size:.8rem;margin-right:5px}
+  .mcard.good .lbl{color:var(--roas-high)}
+  .prio{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .prio li{font-size:.86rem;line-height:1.45;display:flex;gap:9px;align-items:baseline}
+  .prio li .n{flex:0 0 auto;width:20px;height:20px;border-radius:6px;background:var(--accent0);color:#fff;
+    font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .tl{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .tl li{font-size:.85rem;line-height:1.45}
+  .tl li .who{font-weight:700;color:var(--ink)}
+  .tl li .seq{color:var(--ink-soft);font-size:.82rem}
+
+  ul.takeaways{list-style:none;margin-top:16px;padding-left:54px;display:grid;gap:11px}
+  ul.takeaways li{position:relative;padding-left:22px;font-size:.93rem}
+  ul.takeaways li::before{content:"▸";position:absolute;left:0;color:var(--accent0);font-weight:700}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr}.sec-desc,ul.takeaways{padding-left:0}}
+
+  h3.sub-h{margin:30px 0 4px;padding-left:54px;font-weight:700;font-size:1.02rem;letter-spacing:-.02em}
+  @media(max-width:680px){h3.sub-h{padding-left:0}}
+
+  /* 운영 리듬 flow */
+  .rhythm{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:8px;margin-top:14px}
+  .rhythm .step{display:flex;align-items:center;gap:9px;background:var(--card);position:relative;
+    border:1px solid var(--line);border-left:3px solid var(--sec06);border-radius:11px;
+    padding:11px 15px;font-size:.88rem;font-weight:600;color:var(--ink);box-shadow:var(--shadow)}
+  .rhythm .step small{font-weight:400;color:var(--ink-soft);font-size:.76rem;margin-left:2px}
+  .rhythm .step .n{font-family:var(--mono);font-weight:500;font-size:.8rem;color:#fff;flex-shrink:0;
+    background:var(--sec06);width:21px;height:21px;border-radius:6px;display:grid;place-items:center}
+  .rhythm .step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);
+    color:var(--sec06);font-weight:700;font-size:1.05rem;z-index:1}
+  @media(max-width:680px){.rhythm{grid-template-columns:1fr;gap:14px}
+    .rhythm .step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-13px;transform:translateX(-50%)}}
+
+  /* 버섯목 킬콘 gallery */
+  .ad-link{display:inline-block;margin-left:6px;color:var(--sec01);font-weight:700;text-decoration:none;
+    border-bottom:1.5px solid var(--sec01);padding-bottom:1px}
+  .ad-link:hover{opacity:.7}
+  .killcon{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .killcon .kc{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:var(--shadow);margin:0;display:flex;flex-direction:column}
+  .killcon .kc img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#000}
+  .killcon .kc figcaption{padding:11px 13px 14px;font-size:.8rem;color:var(--ink-soft);line-height:1.5}
+  .killcon .kc-tag{display:block;font-size:.68rem;letter-spacing:.04em;font-weight:700;
+    color:var(--sec01);margin-bottom:5px;text-transform:uppercase}
+  @media(max-width:880px){.killcon{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.killcon{grid-template-columns:1fr}}
+
+  footer{margin-top:78px;padding-top:24px;border-top:1px solid var(--line);
+    font-size:.8rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .disc{margin-top:14px;font-size:.78rem;color:#8a96a6;padding-left:54px;max-width:76ch}
+  @media(max-width:680px){.disc{padding-left:0}}
+
+  .rv{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- 추가: 매체 블록 / 입력란 / 추천 ---------- */
+  .media-block{margin-top:22px}
+  .media-block .mh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .media-block .badge{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.04em;
+    color:#fff;padding:4px 11px;border-radius:8px}
+  .badge.meta{background:var(--sec02)} .badge.gfa{background:var(--sec04)} .badge.ggl{background:var(--sec06)}
+  .media-block .mh b{font-size:.96rem;letter-spacing:-.02em}
+  .media-block .mh .sm{font-size:.82rem;color:var(--ink-soft);font-weight:500}
+
+  /* 입력 가능한 표 */
+  .editable caption{color:var(--sec07)}
+  td.input-cell{background:#fffdf7;color:#b08900;font-style:italic}
+  .editable tbody td[contenteditable]{outline:none}
+  .editable tbody td[contenteditable]:focus{background:#fff8e1;box-shadow:inset 0 0 0 2px var(--sec06)}
+  .hint{font-size:.78rem;color:#8a96a6;margin-top:8px;padding-left:2px}
+  .hint::before{content:"✎ ";color:var(--sec06)}
+
+  /* 추천 후보 카드 */
+  .reco{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px;margin-top:6px}
+  .reco .rc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 17px;
+    box-shadow:var(--shadow);border-top:3px solid var(--sec07)}
+  .reco .rc .rt{font-size:.71rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--sec07);margin-bottom:7px}
+  .reco .rc .rn{font-weight:700;font-size:.92rem;letter-spacing:-.02em;margin-bottom:6px;line-height:1.4}
+  .reco .rc .rm{font-size:.83rem;color:var(--ink-soft);line-height:1.5}
+  .reco .rc .rs{font-family:var(--mono);font-weight:500;color:var(--roas-high)}
+
+  /* 주차 추이 미니 */
+  .trend td .wk{font-family:var(--mono);font-weight:500}
+  .up-arrow{color:var(--roas-high);font-weight:700}
+  .flat-arrow{color:var(--roas-mid);font-weight:700}
+
+  /* note 내부 단락 간격 */
+  .note p{margin:0 0 8px;text-wrap:pretty}
+  .note p:last-child{margin-bottom:0}
+  .note ul.tight{list-style:none;display:grid;gap:7px;margin:8px 0 0;font-size:.9rem}
+  .note ul.tight li{padding-left:14px;position:relative;line-height:1.55}
+  .note ul.tight li::before{content:"·";position:absolute;left:2px;color:var(--ink-soft)}
+
+  /* 표 셀 안 불릿 리스트 */
+  ul.cell-list{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:.86rem;text-align:left;white-space:normal}
+  ul.cell-list li{padding-left:12px;position:relative;line-height:1.45}
+  ul.cell-list li::before{content:"·";position:absolute;left:1px;color:var(--ink-soft)}
+
+  /* 콘텐츠 캘린더 */
+  .cal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+  .cal .cal-h{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-soft);
+    text-align:center;padding-bottom:4px;font-weight:600}
+  .cal .day{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:9px 9px 11px;
+    min-height:96px;display:flex;flex-direction:column;gap:7px}
+  .cal .day.empty{background:transparent;border-style:dashed;border-color:#e8ecf1}
+  .cal .dnum{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--ink-soft);text-align:right}
+  .cal .ev{font-size:.74rem;line-height:1.35;background:#f6f8fa;border-radius:7px;padding:6px 7px;
+    border-left:3px solid var(--sec02)}
+  .cal .ev .who{display:inline-block;font-size:.66rem;color:var(--ink-soft);margin-right:5px}
+  .cal .ev .typ{display:inline-block;font-size:.62rem;font-weight:600;padding:1px 6px;border-radius:6px;
+    margin-top:3px}
+  .typ.img{background:#eef4ff;color:#3a6ea5} .typ.ugc{background:#eaf6ec;color:#3d8b54}
+  .typ.pa{background:#f0ebfa;color:#7a5bc2}
+  .cal .ev.pa-ev{border-left-color:var(--sec06)} .cal .ev.ugc-ev{border-left-color:var(--sec04)}
+  .cal-week{font-family:var(--mono);font-size:.78rem;color:var(--accent0);font-weight:600;margin:18px 0 4px}
+  @media(max-width:760px){.cal{grid-template-columns:repeat(2,1fr)}.cal .cal-h{display:none}}
+
+  /* 제품별 아웃풋 카드 */
+  .out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:8px}
+  @media(max-width:760px){.out-grid{grid-template-columns:1fr}}
+  .out-card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 17px;
+    box-shadow:var(--shadow);border-top:3px solid var(--line)}
+  .out-card.c-elbow{border-top-color:var(--sec07)}
+  .out-card.c-neck{border-top-color:var(--sec02)}
+  .out-card.c-waist{border-top-color:var(--sec04)}
+  .out-card .oc-h{font-weight:700;font-size:.95rem;letter-spacing:-.02em;margin-bottom:10px}
+  .out-card .oc-h .cnt{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);font-weight:500;margin-left:6px}
+  .out-card ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:.87rem}
+  .out-card li{padding-left:13px;position:relative;line-height:1.45}
+  .out-card li::before{content:"·";position:absolute;left:2px;color:var(--ink-soft)}
+  .out-card li .t{display:inline-block;font-size:.64rem;font-weight:600;padding:1px 6px;border-radius:5px;margin-left:5px;vertical-align:middle}
+  .t-vi{background:#eaf6ec;color:#3d8b54} .t-im{background:#eef4ff;color:#3a6ea5} .t-pa{background:#f0ebfa;color:#7a5bc2}
+
+  /* 제품별 고효율 소재 행 */
+  ul.mat-rows{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  ul.mat-rows li{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:8px;
+    font-size:.84rem;line-height:1.35;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  ul.mat-rows li:last-child{border-bottom:none;padding-bottom:0}
+  ul.mat-rows .mn{color:var(--ink);min-width:0}
+  ul.mat-rows .who2{font-size:.72rem;color:var(--ink-soft);white-space:nowrap}
+  ul.mat-rows .sp{font-family:var(--mono);font-size:.74rem;color:var(--ink-soft);white-space:nowrap;text-align:right;min-width:46px}
+  ul.mat-rows .ro{font-family:var(--mono);font-size:.84rem;color:var(--roas-high);white-space:nowrap;text-align:right;min-width:46px}
+  @media(max-width:760px){ul.mat-rows li{grid-template-columns:1fr auto auto}ul.mat-rows .who2{display:none}}
+
+  /* 소재 스크린샷 블록 */
+  .mat-block{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .mat-block .mb-h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+  .mat-block .mb-h b{font-size:.98rem;letter-spacing:-.02em}
+  .mat-block .mb-h .tag{font-size:.66rem}
+  .mat-block .mb-desc{font-size:.86rem;color:var(--ink-soft);margin-bottom:11px;line-height:1.55}
+  .mat-block img{width:100%;height:auto;border-radius:9px;border:1px solid var(--line);display:block}
+  .mat-block .img-ph, .img-ph{width:100%;min-height:150px;border-radius:9px;border:1px dashed var(--line);
+    display:flex;align-items:center;justify-content:center;color:#aeb7c2;font-size:.82rem;background:#fafbfc}
+  .mat-block .cap{font-size:.74rem;color:#8a96a6;margin-top:7px}
+
+  /* 링크 버튼 */
+  .link-btn{display:inline-flex;align-items:center;gap:9px;margin-top:20px;text-decoration:none;
+    background:var(--accent0);color:#fff;font-size:.9rem;font-weight:600;letter-spacing:-.01em;
+    padding:12px 20px;border-radius:11px;box-shadow:var(--shadow);transition:opacity .15s}
+  .link-btn:hover{opacity:.88}
+  .link-btn .ic{font-size:1rem}
+  .link-btn .arr{margin-left:2px;opacity:.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Masthead -->
+  <header class="mast">
+    <div class="kicker">마케팅 1팀 · 콘텐츠 주간 보고</div>
+    <h1>6월 콘텐츠 성과 보고서 <span class="yr">2026. 06 · 5주차</span></h1>
+    <p class="sub" style="display:none"></p>
+    <div class="kpi-banner">
+      <div class="cell"><div class="lbl">META 아임웹ROAS <span style="font-size:.7em;opacity:.7">(4인)</span></div><div class="v">172%</div></div>
+      <div class="cell"><div class="lbl">4인 광고비</div><div class="v" style="font-size:1.15rem">4,074만</div></div>
+      <div class="cell"><div class="lbl">아임웹 매출</div><div class="v" style="font-size:1.15rem">7,023만</div></div>
+      <div class="cell"><div class="lbl">최고효율 담당</div><div class="v" style="font-size:1.15rem">PA 216%</div></div>
+    </div>
+  </header>
+
+  <!-- 1. 6월 성과 요약 -->
+  <section class="rv s2" style="animation-delay:.05s">
+    <div class="sec-head"><span class="sec-num">1</span><h2>6월 성과 요약</h2></div>
+    <p class="sec-desc">핵심 담당자 4그룹(김승희·김희진·최현진·PA) + 제품별 집계 (6월 5주차 · 6/22~6/30) — 4인 META 광고비 4,074만 · 아임웹 172%</p>
+    <div class="kpi-grid">
+      <div class="kpi green"><div class="lbl">META 아임웹 ROAS</div><div class="val">172<small>%</small></div><div class="delta up">광고비 4,074만 · 아임웹 7,023만</div></div>
+      <div class="kpi green"><div class="lbl">PA (최고 효율)</div><div class="val">216<small>%</small></div><div class="delta up">김익환 · 이혜민·김기준 견인</div></div>
+      <div class="kpi green"><div class="lbl">김희진</div><div class="val">177<small>%</small></div><div class="delta up">헬스엘보·인플루언서 안정</div></div>
+      <div class="kpi green"><div class="lbl">김승희 (최대 집행)</div><div class="val">167<small>%</small></div><div class="delta up">광고비 2,649만 · 버섯목·일자목 동력</div></div>
+    </div>
+  </section>
+
+  <!-- 2. 매체별 소재 성과 -->
+  <section class="rv s2" style="animation-delay:.1s">
+    <div class="sec-head"><span class="sec-num">2</span><h2>매체별 소재 성과</h2></div>
+    <p class="sec-desc">담당자별 + 제품별 집계 (6월 5주차 · 6/22~6/30) — 담당자는 김승희·김희진·최현진·PA(김익환) 한정. 광고명에 PA가 포함되거나 김익환 담당 소재는 <b>PA</b>로 집계</p>
+
+    <!-- META 담당자별 -->
+    <div class="media-block">
+      <div class="mh"><span class="badge meta">META</span><b>담당자별 성과</b><span class="sm">— 5인 아임웹 173% / 매체 240%</span></div>
+      <div class="tbl-wrap">
+        <table>
+          <caption>META 담당자별 소재 성과 (6월 5주차 · 4인)</caption>
+          <thead><tr><th>담당자</th><th>광고비</th><th>아임웹 매출</th><th>아임웹 ROAS</th></tr></thead>
+          <tbody>
+            <tr><td><span class="fire">★</span> 김승희</td><td>26,485,748</td><td>44,334,762</td><td><span class="roas roas-high">167%</span></td></tr>
+            <tr><td>최현진</td><td>7,250,782</td><td>12,343,432</td><td><span class="roas roas-high">170%</span></td></tr>
+            <tr><td>김희진</td><td>4,067,291</td><td>7,216,700</td><td><span class="roas roas-high">177%</span></td></tr>
+            <tr><td>PA <span class="name-sm">(김익환)</span></td><td>2,932,108</td><td>6,338,252</td><td><span class="roas roas-high">216%</span></td></tr>
+            <tr class="total"><td>합계</td><td>40,735,929</td><td>70,233,146</td><td><span class="roas roas-high">172%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="tag">META 포인트</span>
+        <p><b>김승희</b>가 광고비 2,649만으로 집행 1위 — 버섯목 인체훅·일자목 라인이 동력 (아임웹 167%)</p>
+        <p><b>PA(김익환)</b>가 아임웹 216%로 이번 주 최고 효율 — 이혜민·김기준이 견인. <b>김희진</b>도 177%로 안정</p>
+      </div>
+    </div>
+
+    <!-- META 제품별 -->
+    <div class="media-block">
+      <div class="mh"><span class="badge meta">META</span><b>제품별 성과 (전체 기준)</b><span class="sm">— 전체 아임웹 179%</span></div>
+      <div class="tbl-wrap">
+        <table>
+          <caption>META 제품별 소재 성과 (6월 5주차 · 전체)</caption>
+          <thead><tr><th>제품</th><th>광고비</th><th>아임웹 매출</th><th>아임웹 ROAS</th></tr></thead>
+          <tbody>
+            <tr><td><span class="fire">★</span> 목마사지베개V2</td><td>30,462,548</td><td>54,374,816</td><td><span class="roas roas-high">178%</span></td></tr>
+            <tr><td><span class="fire">★</span> 목베개플러스</td><td>10,369,005</td><td>19,830,042</td><td><span class="roas roas-high">191%</span></td></tr>
+            <tr><td><span class="fire">★</span> 허리편한케어</td><td>7,326,664</td><td>13,910,801</td><td><span class="roas roas-high">190%</span></td></tr>
+            <tr><td>팔꿈치마사지기</td><td>18,835,346</td><td>31,885,752</td><td><span class="roas roas-high">169%</span></td></tr>
+            <tr class="total"><td>합계</td><td>66,993,563</td><td>120,001,411</td><td><span class="roas roas-high">179%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="tag">제품 포인트</span>
+        <p>제품별 합계는 4인 외 담당자(박연1·황은인 등) 소재를 포함한 <b>전체 집행 기준</b>이라 담당자 합계(4,074만)보다 큽니다</p>
+        <p><b>목베개플러스</b>(191%)·<b>허리편한케어</b>(190%)가 이번 주 최고 효율 — 비밀링크·척추협착증 라인이 견인</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 3. 담당자별 하이라이트 -->
+  <section class="rv s3" style="animation-delay:.15s">
+    <div class="sec-head"><span class="sec-num">3</span><h2>담당자별 하이라이트 — 핵심 4그룹</h2></div>
+    <p class="sec-desc">6월 5주차 META 기준 — 김승희(최대 집행)·PA(최고 효율)·김희진·최현진</p>
+    <div class="twocol">
+      <div class="note good">
+        <span class="tag">★ 김승희 — 최대 집행</span>
+        <p><b>광고비 2,649만(집행 1위) · 아임웹 167%</b></p>
+        <p>버섯목 인체훅(215%)·일자목 머리떨굼C(220%)가 핵심 동력</p>
+        <p>에이든팍 거북목훅(215%)·자가진단(206%) 등 안착, 흉쇄유돌근 목의길이 계열 검증(169%)</p>
+      </div>
+      <div class="note good">
+        <span class="tag">★ PA(김익환) — 최고 효율</span>
+        <p><b>광고비 293만 · 아임웹 216%</b></p>
+        <p>이혜민(200%)·김기준이 견인 — PA 라인이 이번 주 최고 효율</p>
+        <p>박수하(208%)·골프엘보 결합 등 신규 PA 확장</p>
+      </div>
+      <div class="note good">
+        <span class="tag">김희진 — 팔꿈치·허편케</span>
+        <p><b>광고비 407만 · 아임웹 177%</b></p>
+        <p>인플루언서 전부(239%)·헬스엘보 혜택디벨(178%) 견인</p>
+        <p>척추협착증 60대남화자·디스크염증훅 등 허편케 라인 병행</p>
+      </div>
+      <div class="note good">
+        <span class="tag">최현진 — 홈쇼핑·프로모션</span>
+        <p><b>광고비 725만 · 아임웹 170%</b></p>
+        <p>홈쇼핑 실제리뷰(214%)가 견인 — 신뢰감 소구 안정</p>
+        <p>가정의달C·역대네고디벨롭 등 프로모션 라인 운영</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 고효율 소재 TOP -->
+  <section class="rv s1" style="animation-delay:.2s">
+    <div class="sec-head"><span class="sec-num">4</span><h2>🔥 고효율 소재 TOP</h2></div>
+    <p class="sec-desc red-mark">6월 5주차 META 아임웹 ROAS 상위(광고비 20만원↑) — <b>4인 담당자(김승희·김희진·최현진·PA) 소재 한정</b>. ★는 광고비 100만원 이상 &amp; 아임웹 ROAS 200% 이상 대형 검증 소재</p>
+    <div class="tbl-wrap">
+      <table>
+        <caption>고효율 소재 TOP (META · 6월 5주차 · 4인 · 아임웹 ROAS순 · 광고비 20만↑)</caption>
+        <thead><tr><th>소재</th><th>담당</th><th>제품</th><th>광고비</th><th>아임웹 매출</th><th>ROAS</th></tr></thead>
+        <tbody>
+          <tr><td>인플루언서_전부</td><td>김희진</td><td>팔꿈치</td><td>815,413</td><td>1,949,000</td><td><span class="roas roas-high">239%</span></td></tr>
+          <tr style="background:#fbf3ea"><td><span class="fire">★</span> 일자목_머리떨굼C(공감스트레칭)</td><td>김승희</td><td>목베개V2</td><td>2,613,409</td><td>5,749,131</td><td><span class="roas fire roas-high">220%</span></td></tr>
+          <tr style="background:#fbf3ea"><td><span class="fire">★</span> 버섯목_키네벤치A(인체훅)</td><td>김승희</td><td>목베개V2</td><td>5,190,288</td><td>11,167,600</td><td><span class="roas fire roas-high">215%</span></td></tr>
+          <tr style="background:#fbf3ea"><td><span class="fire">★</span> PA에이든팍_적용D(거북목훅)</td><td>김승희</td><td>목베개V2</td><td>1,170,688</td><td>2,514,700</td><td><span class="roas fire roas-high">215%</span></td></tr>
+          <tr style="background:#fbf3ea"><td><span class="fire">★</span> 홈쇼핑_실제리뷰(신뢰감)</td><td>최현진</td><td>목베개V2</td><td>2,060,145</td><td>4,400,500</td><td><span class="roas fire roas-high">214%</span></td></tr>
+          <tr><td>PA_박수하</td><td>PA(김익환)</td><td>목베개V2</td><td>342,415</td><td>712,000</td><td><span class="roas roas-high">208%</span></td></tr>
+          <tr style="background:#fbf3ea"><td><span class="fire">★</span> 버섯목_4주차C(자가진단)</td><td>김승희</td><td>목베개V2</td><td>2,267,078</td><td>4,660,521</td><td><span class="roas fire roas-high">206%</span></td></tr>
+          <tr><td>PA_이혜민</td><td>PA(김익환)</td><td>팔꿈치</td><td>1,812,427</td><td>3,623,952</td><td><span class="roas roas-high">200%</span></td></tr>
+          <tr><td>일자목_머리떨굼A(AI각목)</td><td>김승희</td><td>목베개V2</td><td>1,477,330</td><td>2,633,800</td><td><span class="roas roas-mid">178%</span></td></tr>
+          <tr><td>헬스엘보_혜택디벨</td><td>김희진</td><td>팔꿈치</td><td>1,937,303</td><td>3,444,900</td><td><span class="roas roas-mid">178%</span></td></tr>
+          <tr><td>흉쇄유돌근_목의길이C(자세유도)</td><td>김승희</td><td>목베개V2</td><td>438,150</td><td>740,900</td><td><span class="roas roas-mid">169%</span></td></tr>
+          <tr><td>희진님벤치C(뼈소스훅)</td><td>김승희</td><td>팔꿈치</td><td>5,861,396</td><td>8,283,600</td><td><span class="roas roas-mid">141%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-h">📦 담당자별 고효율 소재 (5주차 · 아임웹 ROAS 상위)</h3>
+    <div class="out-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="out-card c-neck">
+        <div class="oc-h">김승희<span class="cnt">총 광고비 2,649만</span></div>
+        <ul class="mat-rows">
+          <li><span class="mn">일자목 머리떨굼C(공감스트레칭)</span> <span class="who2">목베개V2</span><span class="sp">261만</span><b class="ro">220%</b></li>
+          <li><span class="mn">버섯목 키네벤치A(인체훅)</span> <span class="who2">목베개V2</span><span class="sp">519만</span><b class="ro">215%</b></li>
+          <li><span class="mn">에이든팍 거북목훅D</span> <span class="who2">목베개V2</span><span class="sp">117만</span><b class="ro">215%</b></li>
+          <li><span class="mn">버섯목 4주차C(자가진단)</span> <span class="who2">목베개V2</span><span class="sp">227만</span><b class="ro">206%</b></li>
+          <li><span class="mn">일자목 머리떨굼A(AI각목)</span> <span class="who2">목베개V2</span><span class="sp">148만</span><b class="ro">178%</b></li>
+          <li><span class="mn">흉쇄유돌근 목의길이A(AI훅)</span> <span class="who2">목베개V2</span><span class="sp">34.1만</span><b class="ro">177%</b></li>
+          <li><span class="mn">흉쇄유돌근 목의길이C(자세유도)</span> <span class="who2">목베개V2</span><span class="sp">43.8만</span><b class="ro">169%</b></li>
+        </ul>
+      </div>
+      <div class="out-card" style="border-top-color:var(--sec03)">
+        <div class="oc-h">PA — 김익환<span class="cnt">총 광고비 293만 · 216%</span></div>
+        <ul class="mat-rows">
+          <li><span class="mn">PA 박수하</span> <span class="who2">목베개V2</span><span class="sp">34.2만</span><b class="ro">208%</b></li>
+          <li><span class="mn">PA 이혜민</span> <span class="who2">팔꿈치</span><span class="sp">181만</span><b class="ro">200%</b></li>
+          <li><span class="mn">PA 골프엘보 뒷땅C</span> <span class="who2">팔꿈치</span><span class="sp">7.6만</span><b class="ro">400%</b></li>
+          <li><span class="mn">PA 고은별</span> <span class="who2">팔꿈치</span><span class="sp">13.2만</span><b class="ro">237%</b></li>
+        </ul>
+      </div>
+      <div class="out-card c-elbow">
+        <div class="oc-h">최현진<span class="cnt">총 광고비 725만</span></div>
+        <ul class="mat-rows">
+          <li><span class="mn">홈쇼핑 실제리뷰(신뢰감)</span> <span class="who2">목베개V2</span><span class="sp">206만</span><b class="ro">214%</b></li>
+          <li><span class="mn">프로모션 가정의달C</span> <span class="who2">목베개V2</span><span class="sp">158만</span><b class="ro">154%</b></li>
+          <li><span class="mn">프로모션 역대네고디벨롭</span> <span class="who2">목베개V2</span><span class="sp">214만</span><b class="ro">152%</b></li>
+          <li><span class="mn">수면제베개</span> <span class="who2">목베개V2</span><span class="sp">124만</span><b class="ro">123%</b></li>
+        </ul>
+      </div>
+      <div class="out-card c-waist">
+        <div class="oc-h">김희진<span class="cnt">총 광고비 407만</span></div>
+        <ul class="mat-rows">
+          <li><span class="mn">인플루언서 전부</span> <span class="who2">팔꿈치</span><span class="sp">81.5만</span><b class="ro">239%</b></li>
+          <li><span class="mn">헬스엘보 혜택디벨</span> <span class="who2">팔꿈치</span><span class="sp">194만</span><b class="ro">178%</b></li>
+          <li><span class="mn">척추협착증 60대남화자</span> <span class="who2">허편케</span><span class="sp">50.0만</span><b class="ro">214%</b></li>
+          <li><span class="mn">실험용 디스크염증훅</span> <span class="who2">허편케</span><span class="sp">65.6만</span><b class="ro">92%</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="rv s7" style="animation-delay:.25s">
+    <div class="sec-head"><span class="sec-num">5</span><h2>🚀 콘텐츠 제작 계획</h2></div>
+    <p class="sec-desc">금주 콘텐츠 제작 계획 — 고효율 검증 소재의 SKU 간 이식·확장 정리 (골반 신규 라인 · 허편케 디벨롭 · 팔꿈치 타노스 2차 활용 중심)</p>
+
+    <h3 class="sub-h">✅ 금주 콘텐츠 아웃풋 예상 <span class="name-sm">TTL VI 기준: 팔꿈치 11건+@ · 목베개 4건 · 허편케 1건+@ · 골반 5건</span></h3>
+    <div class="out-grid">
+      <div class="out-card c-neck">
+        <div class="oc-h">목베개<span class="cnt">VI 4</span></div>
+        <ul>
+          <li>버섯목 확장(아이클레이) — 현진<span class="t t-vi">VI</span></li>
+          <li>수하님 PA 2차 활용(온가족) — 현진<span class="t t-vi">VI</span></li>
+          <li>흉쇄유돌근 목의길이 디벨롭 — 승희<span class="t t-vi">VI</span></li>
+        </ul>
+      </div>
+      <div class="out-card c-waist">
+        <div class="oc-h">허편케<span class="cnt">IM 5 · 단컷 3</span></div>
+        <ul>
+          <li>허편케 IM 5건 — 도현<span class="t t-vi">IM</span></li>
+          <li>허편케 단컷 3건 — 도현<span class="t t-im">단컷</span></li>
+          <li>맨즈바닥 2차 디벨롭(노가다 MIXPA)<span class="t t-pa">PA</span></li>
+        </ul>
+      </div>
+      <div class="out-card c-elbow">
+        <div class="oc-h">팔꿈치<span class="cnt">VI 11+@</span></div>
+        <ul>
+          <li>콘텐츠팀: 가시팔 B&amp;A·국대스포츠 2건<span class="t t-vi">VI</span></li>
+          <li>타노스 2차 활용 6건(콘텐츠팀·현진·승희)<span class="t t-vi">VI</span></li>
+          <li>PA 랑권TV·타노스<span class="t t-pa">PA</span></li>
+        </ul>
+      </div>
+      <div class="out-card" style="border-top-color:var(--sec05)">
+        <div class="oc-h">골반<span class="cnt">VI 5</span></div>
+        <ul>
+          <li>MIXPA — 도현<span class="t t-vi">VI</span></li>
+          <li>콘텐츠팀 RVI: 골반교정·산후·필테요가 3건<span class="t t-vi">RVI</span></li>
+          <li>고효율 소재 이식 테스트(연님 저됐어요)<span class="t t-vi">VI</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-h">✅ 담당자별 콘텐츠 현황</h3>
+    <div class="tbl-wrap">
+      <table>
+        <caption>담당자별 업무 · 아웃풋 수량</caption>
+        <thead><tr><th>담당</th><th>주요 업무</th><th>아웃풋 수량</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>현진</td>
+            <td><ul class="cell-list"><li>목베개 버섯목 확장(아이클레이 활용)</li><li>목베개 VI 수하님 PA 2차 활용 (아이 소스 앞단 Hook · 온가족 컨셉)</li></ul></td>
+            <td><ul class="cell-list"><li>목베개 2건</li></ul></td>
+          </tr>
+          <tr>
+            <td>승희</td>
+            <td><ul class="cell-list"><li>목베개 VI 흉쇄유돌근 뷰티와 연결</li></ul></td>
+            <td><ul class="cell-list"><li>목베개 1건</li></ul></td>
+          </tr>
+          <tr>
+            <td>도현</td>
+            <td><ul class="cell-list"><li>골반 VI MIXPA</li><li>허편케 IM</li><li>허편케 단컷</li></ul></td>
+            <td><ul class="cell-list"><li>골반 2건</li><li>허편케 IM 5건</li><li>허편케 단컷 3건</li></ul></td>
+          </tr>
+          <tr>
+            <td>콘텐츠팀 <span class="name-sm">[1팀 요청]</span></td>
+            <td><ul class="cell-list"><li>골반 RVI: 골반교정 / MIXPA(산후·골반교정) / MIXPA(필테·요가)</li><li>팔꿈치 VI 가시팔(B&amp;A) / RVI 국대 스포츠</li></ul></td>
+            <td><ul class="cell-list"><li>골반 3건</li><li>팔꿈치 2건</li></ul></td>
+          </tr>
+          <tr>
+            <td>PA</td>
+            <td><ul class="cell-list"><li>팔꿈치 랑권TV(월) · 타노스(수)</li><li>허편케 맨즈바닥(화)</li><li>목베개 서영님 버섯목(수)</li></ul></td>
+            <td><ul class="cell-list"><li>팔꿈치 2건</li><li>허편케 1건</li><li>목베개 1건</li></ul></td>
+          </tr>
+          <tr>
+            <td>신규 세팅 <span class="name-sm">[完]</span></td>
+            <td><ul class="cell-list"><li>팔꿈치 VI 타노스 2차 활용</li></ul></td>
+            <td><ul class="cell-list"><li>팔꿈치 6건 (콘텐츠팀 MIXPA 1 · 현진 4 · 승희 1)</li></ul></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="tag">콘텐츠팀 협업</span>
+      <p><b>민성님 주 3회 요청 건</b> — 현재 추가 요청 가능 (단, 속도감을 위해 스크립트 전달 필요)</p>
+      <p><b>추가 요청 ①</b> — 팔꿈치마사지기: 연님_저됐어요 고효율 소재 페르소나 변경(승희님 지인 헤어디자이너)</p>
+      <p><b>추가 요청 ②</b> — 허편케V2: 맨즈바닥 2차 활용 디벨롭 (클린본 미제공 · 자사 영상 결합 가능, 제작본 금일 6시 이후 공유)</p>
+    </div>
+
+    <h3 class="sub-h">✅ 차주 예상 아웃풋 <span class="name-sm">[콘텐츠팀 협업 건 · 소통: 익환님]</span></h3>
+    <div class="tbl-wrap">
+      <table>
+        <caption>차주 예상 아웃풋</caption>
+        <thead><tr><th>SKU</th><th>내용</th><th>아웃풋</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>골반</td>
+            <td><ul class="cell-list"><li>부부선물 (보람님)</li></ul></td>
+            <td><ul class="cell-list"><li>1건</li></ul></td>
+          </tr>
+          <tr>
+            <td>목베개</td>
+            <td><ul class="cell-list"><li>코골이 (보람님)</li><li>물치사 건강정보 (서아님)</li><li>에스테틱 (서아님)</li></ul></td>
+            <td><ul class="cell-list"><li>3건</li></ul></td>
+          </tr>
+          <tr>
+            <td>허편케</td>
+            <td><ul class="cell-list"><li>MIXPA 직업군 노가다 (보람님)</li><li>물치사 건강정보 (서아님)</li></ul></td>
+            <td><ul class="cell-list"><li>2건</li></ul></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-h">📅 6~7월 콘텐츠 캘린더</h3>
+
+    <div class="cal-week">6월 22일 ~ 26일</div>
+    <div class="cal">
+      <div class="cal-h">월</div><div class="cal-h">화</div><div class="cal-h">수</div><div class="cal-h">목</div><div class="cal-h">금</div>
+      <div class="day empty"><div class="dnum">22</div></div>
+      <div class="day empty"><div class="dnum">23</div></div>
+      <div class="day"><div class="dnum">24</div>
+        <div class="ev">목베개_흉쇄유돌근_목의길이<br><span class="who">승희</span><span class="typ">라이브 · 목마사지베개V2</span></div>
+        <div class="ev">목베개_GFA 디벨롭<br><span class="who">현진</span><span class="typ">라이브</span></div>
+        <div class="ev">팔꿈치 GFA 이미지 4건<br><span class="who">현진</span><span class="typ">라이브</span></div>
+      </div>
+      <div class="day"><div class="dnum">25</div>
+        <div class="ev">팔꿈치_타노스_2차활용VI<br><span class="who">승희</span><span class="typ">완료 · 팔꿈치마사지기</span></div>
+      </div>
+      <div class="day"><div class="dnum">26</div>
+        <div class="ev">목베개_일자목<br><span class="who">현진</span><span class="typ">완료</span></div>
+        <div class="ev ugc-ev">[허편케] 촬영형 콘텐츠 아웃풋 2건<br><span class="who">콘텐츠팀</span><span class="typ ugc">허리편한케어V2</span></div>
+        <div class="ev ugc-ev">허편케V2_경쟁사_등그림<br><span class="who">승희</span><span class="typ ugc">제작중 · 허리편한케어V2</span></div>
+        <div class="ev ugc-ev">허편케V2_경쟁사_병원훅<br><span class="who">승희</span><span class="typ ugc">라이브 · 허리편한케어V2</span></div>
+      </div>
+    </div>
+
+    <div class="cal-week">6월 29일 ~ 7월 3일</div>
+    <div class="cal">
+      <div class="cal-h">월</div><div class="cal-h">화</div><div class="cal-h">수</div><div class="cal-h">목</div><div class="cal-h">금</div>
+      <div class="day"><div class="dnum">29</div>
+        <div class="ev">[팔꿈치] 랑권TV 업로드<br><span class="who">승희</span><span class="typ">팔꿈치마사지기 · 마케팅1팀</span></div>
+      </div>
+      <div class="day"><div class="dnum">30</div>
+        <div class="ev">[허편케V2] 맨즈바닥 업로드<br><span class="who">승희</span><span class="typ">허리편한케어V2 · 마케팅1팀</span></div>
+        <div class="ev ugc-ev">[팔꿈치] 촬영형 콘텐츠 아웃풋 2건<br><span class="who">희진</span><span class="typ ugc">완료 · 콘텐츠팀</span></div>
+        <div class="ev">팔꿈치_통증_헤어디자이너<br><span class="who">승희</span><span class="typ">기획중 · 팔꿈치마사지기</span></div>
+        <div class="ev">목베개_버섯목 확장<br><span class="who">현진</span><span class="typ">완료</span></div>
+        <div class="ev">목베개V2_미용_흉쇄유돌근<br><span class="who">승희</span><span class="typ">기획중 · 목마사지베개V2</span></div>
+        <div class="ev">팔꿈치_고연령 남성<br><span class="who">현진</span><span class="typ">라이브</span></div>
+      </div>
+      <div class="day"><div class="dnum" style="color:var(--accent);font-weight:800">1</div></div>
+      <div class="day empty"><div class="dnum">2</div></div>
+      <div class="day empty"><div class="dnum">3</div></div>
+    </div>
+  </section>
+  <section class="rv s7" style="animation-delay:.35s">
+    <div class="sec-head"><span class="sec-num">6</span><h2>🚀 소재 디벨롭·확장 방향</h2></div>
+    <p class="sec-desc">제품별로 검증된 소재를 어떻게 확장할지 정리 — 성과 난 소재는 베리에이션·증액, 부진 라인은 신규 소구점으로 전환</p>
+
+    <a class="link-btn" href="https://app.notion.com/p/6-4-387d64378d488074a4c7c45298773aef" target="_blank" rel="noopener">
+      <span class="ic">📄</span>6월 5주차 콘텐츠 아이데이션 회의록<span class="arr">↗</span>
+    </a>
+
+    <h3 class="sub-h">🗒 5주차 회의 요약</h3>
+    <div class="mtg">
+
+      <div class="mtg-grid">
+        <div class="mcard accent">
+          <h4><span class="ic">💡</span>아이데이션 제안</h4>
+          <p class="row"><b>효율 소재 플로우 이식</b> — 기존·타팀 고효율 소재의 플로우가 다른 SKU에도 이식됐는지 파악, 무드가 안 맞으면 로직만이라도 적용 가능한지 확인</p>
+          <p class="row"><b>협업 우선순위</b> — 우리가 할지 콘텐츠팀에 요청할지, 콘텐츠팀 금주 아웃풋부터 파악 최우선</p>
+          <p class="row"><b>To-Do</b> — 콘텐츠팀 요청 RVI 소재 톺아보기 · 맨즈바닥 2차 활용 콘텐츠</p>
+        </div>
+        <div class="mcard accent">
+          <h4><span class="ic">🔬</span>허편케 디벨롭 인사이트</h4>
+          <p class="row"><b>소폭 교체 재효율</b> — 기존 소재의 작은 부분만 교체해도 효율 재발생하는지 검증, 다른 SKU 킬콘에도 적용 가능한지 체크 (적은 리소스로 유의미 소재 발굴)</p>
+          <p class="row"><b>의료 연출 전환</b> — 간호사·의사·환자 등 의료 관련 상황 연출 시 전환 발생</p>
+        </div>
+      </div>
+
+      <div class="mcard span2">
+        <h4><span class="ic">📌</span>고효율 소재 인사이트 · 이식 현황</h4>
+        <ol class="prio">
+          <li><span class="n">1</span><span><b>의현님_목베개_경추강압</b> (질병명 후킹·잔잔한 감성형) — 허편케 연님 효율 有(중년협착 인트로 디벨롭 完) · 골반 서아님 효율 有(골반불균형) · 팔꿈치 미적용</span></li>
+          <li><span class="n">2</span><span><b>희진님_목베개_태웅벤치마킹</b> (질병명 후킹·빠른템포 광고형) — 허편케 서아님 효율 有(중년버전 디벨롭 完) · 팔꿈치 승희님 효율 有 · 골반 미적용</span></li>
+          <li><span class="n">3</span><span><b>승희님_목베개_버섯목</b> (전문가·전문상식 설득) — 허편케 희진·연님 효율 有(디스크수술훅·등그림) · 골반/팔꿈치 미적용</span></li>
+          <li><span class="n">4</span><span><b>연님_팔꿈치_저됐어요</b> (USP 앞단 배치) — 골반 연님 효율 有(골반위기_BPS) · 허편케/목베개 미적용</span></li>
+          <li><span class="n">5</span><span><b>승희님_일자목_공감스트레칭</b> (흔한 행동이 잘못됐다는 공포) · <b>목통증감성/질병확장</b> (단시간 효과 강조) — 전 SKU 미적용, 테스트 대기</span></li>
+        </ol>
+      </div>
+
+      <div class="mcard span2">
+        <h4><span class="ic">💊</span>허편케 효율소재 디벨롭 경과</h4>
+        <ul class="tl">
+          <li><span class="who">황서아_협착증A</span> 인트로를 자극적 실험 소스로 교체 <span class="seq">광고비 지출 小</span></li>
+          <li><span class="who">김보람_홈쇼핑</span> 하단 배너 전문가 개발 + 인트로 3D 인체소스 <span class="seq">광고비 지출 小</span></li>
+          <li><span class="who">박연_병원종사자</span> 홍경진 원장님·환자 촬영 소스로 교체 <span class="seq">제일 전환 높은 소재</span></li>
+          <li><span class="who">박연_간호사D</span> 하단 전문가 배너 추가 <span class="seq">반응 有</span></li>
+          <li><span class="who">박연_B노배너</span> 플로우 순서 변경(고통 모델·P.P 멘트 앞단) <span class="seq">광고비 지출 小</span></li>
+        </ul>
+      </div>
+
+      <div class="mcard span2">
+        <h4><span class="ic">⚙️</span>맨즈바닥 2차 활용 방향</h4>
+        <p class="row"><span class="lbl">조건</span>클린본 미제공 · 자사 영상 결합 가능</p>
+        <p class="row"><span class="lbl">컨셉</span>아버지 허리통증(택배·물류 결합) · 직업군 몽땅 결합 · 척추측만 소구(B/A 삽입) · 권위/대세감(누적판매 100만·포브스 1위)</p>
+        <p class="row"><span class="lbl">진행</span>골반 MIXPA(간호사/필테강사) · 허편케 이미지 금일 공유(피드백 승희·익환)</p>
+      </div>
+
+      <div class="mcard span2">
+        <h4><span class="ic">🎬</span>PA 현황 · 타임라인</h4>
+        <ul class="tl">
+          <li><span class="who">팔꿈치 고효율 PA</span> 골프캐디 이혜민(골프엘보) — 민성님 완료 · 테니스코치 김기준(테니스엘보)은 내부 효율 플로우 적용 예정</li>
+          <li><span class="who">베개유목민</span> (목베개V2) 빛나 6/22·수하 6/26 업로드 완료 · 채원(버섯목) 7월 1주차 예정(2차 수정요청)</li>
+          <li><span class="who">viral PA</span> 오승익(팔꿈치·클라이밍) 6/29 업로드 완료 · 서영(목베개V2 버섯목) 7/1 초안 → 7/3 업로드</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <h3 class="sub-h">🎯 신규 시도 라인업</h3>
+
+        <div class="mat-block">
+      <div class="mb-h"><b>목베개 V2 — 흉쇄유돌근 (목의길이 검증)</b><span class="tag" style="background:#fbf3ea;color:#b5730f">킬콘 후보 · ROAS 151%</span></div>
+      <div class="mb-desc"><b>목의길이 계열(줄자훅·자세유도·AI훅·자극워딩)</b> 4건 합산 ROAS 151%(광고비 177만·매출 266만·구매 21)로 검증 — AI훅 177%·자세유도 169%·자극워딩 166% 안착. <b>얼굴크기(뷰티) 계열 3건은 매출·구매 0으로 부진</b> → 목의길이 축으로 증액, 뷰티는 소구 재설계 필요</div>
+      <div class="img-ph">이미지 추가 예정</div>
+    </div>
+
+    <div class="mat-block">
+      <div class="mb-h"><b>맨즈바닥 2차 활용 — 노가다 MIXPA</b><span class="tag" style="background:#eef7f0;color:#3a8a5e">허편케 디벨롭</span></div>
+      <div class="mb-desc">택배·물류 직업 소스 결합으로 아버지 허리통증 소구, 척추측만 B/A 삽입, 권위·대세감(누적판매 100만·포브스 1위) — 클린본 미제공, 자사 영상 결합 조건</div>
+      <div class="img-ph">이미지 추가 예정</div>
+    </div>
+
+    <div class="mat-block">
+      <div class="mb-h"><b>골반마사지기 — MIXPA 신규 라인</b><span class="tag" style="background:#fdeef0;color:#c2557a">신규 SKU 확장</span></div>
+      <div class="mb-desc">간호사·필라테스 강사 MIXPA를 메인 인플루언서 흐름과 유사하게 운영 — "필라테스 강사가 추천하는" · "간호사가 추천하는" 소구, 허편케 이미지 병행 진행</div>
+      <div class="img-ph">이미지 추가 예정</div>
+    </div>
+
+    <h3 class="sub-h">🖼 금주 신규 시도 효율 검증 <span class="name-sm" style="color:#c98a2b">※ 이미지·스크린샷 추가 예정</span></h3>
+    <div class="img-ph" style="min-height:220px">이미지·스크린샷 추가 예정</div>
+  </section>
+
+  <section class="rv s7" style="animation-delay:.4s">
+    <div class="sec-head"><span class="sec-num">7</span><h2>✅ 콘텐츠팀 협업 긍정 소재</h2></div>
+    <p class="sec-desc">콘텐츠팀 협업으로 효율이 확인된 소재 — 협업 시 체크포인트 및 차주 요청 방향 정리</p>
+
+    <div class="mat-block">
+      <div class="mb-h"><b>박연_허편케_등그림</b><span class="tag" style="background:#eef7f0;color:#3a8a5e">아임웹 기준 · ROAS 410%</span></div>
+      <div class="mb-desc">ROAS 410% · 광고비 ₩369,184 · 매출 ₩1,514,601 · CTR 1.05%<br>
+      <b>· 협업 체크</b> — 원하는 인트로·소스가 제대로 확보됐는지 필수 확인 (등그림 인트로 훅이 누락될 뻔했으나 희강님 재체크로 정상 Test 진행)<br>
+      <b>· 차주 요청</b> — 등그림 유사 레퍼로 흉쇄유돌근 촬영형 요청 예정</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>마케팅 1팀 · 6월 콘텐츠 주간 보고서</span>
+    <span>출처: 메타·GFA·구글 보고서 26Y · 작성 2026.06</span>
+  </footer>
+
+</div>
+</body>
+</html>
